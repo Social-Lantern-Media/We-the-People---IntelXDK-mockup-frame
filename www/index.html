@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html>
+    <!--
+  * Please see the included README.md file for license terms and conditions.
+  -->
+
+    <head>
+        <link rel="stylesheet" type="text/css" href="galleria/galleria.classic.css">
+        <link rel="stylesheet" type="text/css" href="media_button_bar/css/media_button_bar.css">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="app_framework/2.1/css/af.ui.min.css">
+        <link rel="stylesheet" type="text/css" href="app_framework/2.1/css/icons.min.css">
+        <title>We The Peoples Prototype App</title>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+        <!--
+  * The "meta viewport" tag (below) helps your app size appropriately to a device's screen.
+  * Note that the meta viewport approach is being phased out in favor of the @viewport CSS rule.
+  * For a quick overview of both, see this article:
+  *   http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-dont-forget-the-viewport-meta-tag
+  * To see what happens, try the app on a real device with and without a "meta viewport" tag.
+-->
+
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1, maximum-scale=2"> -->
+
+        <style>
+            /* following three (cascaded) are equivalent to above three meta viewport statements */
+            /* see http://www.quirksmode.org/blog/archives/2014/05/html5_dev_conf.html */
+            /* see http://dev.w3.org/csswg/css-device-adapt/ */
+                @-ms-viewport { width: 100vw ; zoom: 100% ; }                           @viewport { width: 100vw ; zoom: 100% ; }
+                @-ms-viewport { user-zoom: fixed ; }                                    @viewport { user-zoom: fixed ; }
+                /*@-ms-viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }   @viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }*/
+        </style>
+
+        <link rel="stylesheet" href="css/old-android.css">
+        <link rel="stylesheet" type="text/css" href="css/index_main.less.css" class="main-less">
+
+        <!-- IMPORTANT: Do not include your weinre script tag as part of your release builds! -->
+        <!-- Place your remote debugging (weinre) script URL from the Test tab here, if it does not work below -->
+        <!-- <script src="http://debug-software.intel.com/target/target-script-min.js#insertabiglongfunkynumberfromthexdkstesttab"></script> -->
+
+        <!-- Most third-party libraries should go here. References (below) are just examples to give you the general idea... -->
+        <!-- <script src="lib/ft/fastclick.js"></script> -->
+
+        <script src="intelxdk.js"></script>
+        <!-- phantom library, needed for XDK "legacy" container api calls -->
+        <script src="cordova.js"></script>
+        <!-- phantom library, needed for Cordova api calls -->
+        <script src="xhr.js"></script>
+        <!-- phantom library, needed for XDK "legacy" container CORS -->
+
+        <script src="js/app.js"></script>
+        <script src="js/init-app.js"></script>
+        <script src="js/init-dev.js"></script>
+        <!--                        
+                        You may substitute jQuery for the App Framework selector library.
+                        See http://app-framework-software.intel.com/documentation.php#afui/afui_jquery
+                -->
+        <script type="application/javascript" src="app_framework/2.1/appframework.js"></script>
+        <script type="application/javascript" src="app_framework/2.1/appframework.ui.js" data-ver="1"></script>
+        <script type="application/javascript" src="js/index_user_scripts.js"></script>
+        <script type="application/javascript" src="js/af_subpage.js"></script>
+        <!--            
+            You may substitute jQuery for the App Framework selector library.
+            See http://app-framework-software.intel.com/documentation.php#afui/afui_jquery
+        -->
+        <script type="application/javascript" src="lib/jquery.min.js"></script>
+        <script type="application/javascript" src="galleria/galleria-1.3.6.min.js"></script>
+        <script type="application/javascript" src="galleria/galleria.classic.min.js"></script>
+        <script type="application/javascript" src="galleria/galleria-startup.js"></script>
+    </head>
+
+    <body id="afui">
+
+        <!-- IMPORTANT: Do not include your weinre script tag as part of your release builds! -->
+        <!-- Place your remote debugging (weinre) script URL from the Test tab here, if it does not work above -->
+        <!-- <script src="http://debug-software.intel.com/target/target-script-min.js#insertabiglongfunkynumberfromthexdkstesttab"></script> -->
+
+        <div class="uwrap" id="content">
+            <div class="upage panel backgrounddefault" id="mainpage" data-header="af-header-0" data-footer="af-footer-1">
+                <div class="upage-outer">
+                    <header class="container-group inner-element uib_w_1" data-uib="app_framework/header" data-ver="1" id="af-header-0">
+                        <h1></h1>
+                        <div class="widget-container wrapping-col single-centered"></div>
+                        <div class="widget-container content-area horiz-area wrapping-col left with-back"><a class="button backButton">Back</a>
+                        </div>
+                        <div class="widget-container content-area horiz-area wrapping-col right"></div>
+                    </header>
+                    <div class="upage-content vertical-col" id="mainsub">
+
+                        <div class="grid grid-pad urow uib_row_1 row-height-1" data-uib="layout/row" data-ver="0">
+                            <div class="col uib_col_1 col-0_12-12" data-uib="layout/col" data-ver="0">
+                                <div class="widget-container content-area vertical-col">
+
+                                    <div class="widget uib_w_8 scale-image d-margins" data-uib="media/img" data-ver="0">
+                                        <figure class="figure-align">
+                                            <img src="images/Logo2.png">
+                                            <figcaption data-position="bottom"></figcaption>
+                                        </figure>
+                                    </div>
+                                    <div class="widget uib_w_9 d-margins texttest paragraphs" data-uib="media/text" data-ver="0">
+                                        <div class="widget-container left-receptacle"></div>
+                                        <div class="widget-container right-receptacle"></div>
+                                        <div>
+                                            <p>The UN Secretary-General plays a crucial role in tackling global challenges and improving the lives of the seven billion people who populate our planet. Imagine if those seven billion people had an equal say
+                                                in appointing representatives for the next Secretary-General.</p>
+                                        </div>
+                                    </div>
+                                    <div class="embed-video widget uib_w_10 d-margins" data-uib="media/youtube" data-ver="0">
+                                        <iframe src="http://www.youtube.com/embed/R-EbI7OIvL4?wmode=transparent">
+                                        </iframe>
+                                    </div>
+                                    <div class="widget uib_w_11 d-margins texttest paragraphs" data-uib="media/text" data-ver="0">
+                                        <div class="widget-container left-receptacle"></div>
+                                        <div class="widget-container right-receptacle"></div>
+                                        <div>
+                                            <p>Now is your chance as one of those seven billion people with the WE THE PEOPLES app.</p>
+                                            <p>We will bring social media, network responsibility and readible governance data together so that the public can take action to have THEIR voices represented.</p>
+                                        </div>
+                                    </div><a class="button widget uib_w_12 d-margins default-graphic-text yellow" data-uib="app_framework/button" data-ver="1">Discover how to take action now !</a><span class="uib_shim"></span>
+                                </div>
+                            </div>
+                            <span class="uib_shim"></span>
+                        </div>
+                    </div>
+
+                    <!-- /upage-content -->
+
+                    <footer class="inner-element uib_w_3" data-uib="app_framework/footer" data-ver="1" id="af-footer-0"><a class="widget uib_w_7 d-margins icon info" data-uib="app_framework/button" data-ver="1">Home</a><a class="widget uib_w_6 d-margins icon check yellow" data-uib="app_framework/button" data-ver="1">Donate</a><a class="widget uib_w_5 d-margins icon message"
+                        data-uib="app_framework/button" data-ver="1">Contact Us</a><a class="widget uib_w_4 d-margins icon user" data-uib="app_framework/button" data-ver="1">Profile</a>
+                    </footer>
+                </div>
+                <!-- /upage-outer -->
+
+                <div id="uib_Hub" class="upage-content vertical-col hidden">
+                    <div class="widget uib_w_14 scale-image d-margins" data-uib="media/img" data-ver="0">
+                        <figure class="figure-align">
+                            <img src="images/Logo2.png">
+                            <figcaption data-position="bottom"></figcaption>
+                        </figure>
+                    </div>
+                    <div class="sbs-container widget uib_w_43 d-margins hudbuttons" data-uib="layout/side_by_side" data-ver="0">
+                        <div class="leftContent widget-container">
+                            <a class="uib-graphic-button default-graphic-sizing default-image-sizing hover-graphic-button active-graphic-button default-graphic-button default-graphic-text widget uib_w_45 d-margins buttonregistertext media-button-text-bottom" data-uib="media/graphic_button"
+                            data-ver="0">
+                                <img src="images/noun_35171_cc.png">
+                                <span class="uib-caption">General Leaderboards</span>
+                            </a>
+                        </div>
+                        <div class="rightContent widget-container">
+                            <a class="uib-graphic-button default-graphic-sizing default-image-sizing hover-graphic-button active-graphic-button default-graphic-button default-graphic-text widget uib_w_46 d-margins media-button-text-bottom buttonregistertext" data-uib="media/graphic_button"
+                            data-ver="0">
+                                <img src="images/noun_84860_cc(1).png">
+                                <span class="uib-caption">Suggest a Candidate</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="sbs-container widget uib_w_44 d-margins hudbuttons" data-uib="layout/side_by_side" data-ver="0">
+                        <div class="leftContent widget-container">
+                            <a class="uib-graphic-button default-graphic-sizing default-image-sizing hover-graphic-button active-graphic-button default-graphic-button default-graphic-text widget uib_w_47 d-margins media-button-text-bottom buttonregistertext" data-uib="media/graphic_button"
+                            data-ver="0">
+                                <img src="images/noun_51612_cc.png">
+                                <span class="uib-caption">Vote for a Candidate</span>
+                            </a>
+                        </div>
+                        <div class="rightContent widget-container">
+                            <a class="uib-graphic-button default-graphic-sizing default-image-sizing hover-graphic-button active-graphic-button default-graphic-button default-graphic-text widget uib_w_48 d-margins media-button-text-bottom buttonregistertext" data-uib="media/graphic_button"
+                            data-ver="0">
+                                <img src="images/noun_18696_cc.png">
+                                <span class="uib-caption">Find a Candidate</span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+                <div id="uib_Donate" class="upage-content vertical-col hidden">
+                    <div class="widget uib_w_36 scale-image d-margins" data-uib="media/img" data-ver="0">
+                        <figure class="figure-align">
+                            <img src="images/Logo2.png">
+                            <figcaption data-position="bottom"></figcaption>
+                        </figure>
+                    </div>
+                    <div class="widget uib_w_38 d-margins paragraphs" data-uib="media/text" data-ver="0">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div>
+                            <p>Help support our effort to develop and share a more inclusive and democractic system of voting to the United Nations. With your support we can use digital technology and innovation to enpower the public with data that will
+                                improve the decision-making process of the United Nations.</p>
+                        </div>
+                    </div>
+                    <div class="widget uib_w_37 donate customs" data-uib="media/text" data-ver="0">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div>
+                            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                                <input type="hidden" name="cmd" value="_donations">
+                                <input type="hidden" name="business" value="matthewdk54@gmail.com">
+                                <input type="hidden" name="lc" value="GB">
+                                <input type="hidden" name="item_name" value="Charity Title">
+                                <input type="hidden" name="no_note" value="0">
+                                <input type="hidden" name="currency_code" value="GBP">
+                                <input type="hidden" name="bn" value="PP-DonationsBF:btn_donateCC_LG.gif:NonHostedGuest">
+                                <input type="image" src="https://www.paypalobjects.com/en_US/GB/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online.">
+                                <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div id="uib_Contact" class="upage-content vertical-col hidden">
+                    <div class="widget uib_w_21 scale-image d-margins" data-uib="media/img" data-ver="0">
+                        <figure class="figure-align">
+                            <img src="images/Logo2.png">
+                            <figcaption data-position="bottom"></figcaption>
+                        </figure>
+                    </div>
+                    <div class="widget uib_w_22 d-margins TEXTHEADER" data-uib="media/text" data-ver="0">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div>
+                            <p>FOLLOW ONE OF OUR SOCIAL MEDIA CHANNELS</p>
+                        </div>
+                    </div>
+                    <div class="uib-button-bar default-button-bar-height widget uib_w_23 d-margins" data-uib="media/button_bar" data-ver="0">
+                        <a class="uib-graphic-button default-image-sizing hover-graphic-button active-graphic-button default-graphic-button default-graphic-text widget uib_w_24 media-button-text-bottom buttonssm" data-uib="media/graphic_button" data-ver="0">
+                            <img src="images/facebook-icon.png">
+                            <span class="uib-caption">Facebook</span>
+                        </a>
+                        <a class="uib-graphic-button default-image-sizing hover-graphic-button active-graphic-button default-graphic-button default-graphic-text widget uib_w_25 media-button-text-bottom" data-uib="media/graphic_button" data-ver="0">
+                            <img src="images/Twitter_alt_4.png">
+                            <span class="uib-caption">Twitter</span>
+                        </a>
+                        <a class="uib-graphic-button default-image-sizing hover-graphic-button active-graphic-button default-graphic-button default-graphic-text widget uib_w_26 media-button-text-bottom" data-uib="media/graphic_button" data-ver="0">
+                            <img src="images/youtube-icon.png">
+                            <span class="uib-caption">Youtube</span>
+                        </a>
+                    </div>
+                    <div class="widget uib_w_27 d-margins TEXTHEADER" data-uib="media/text" data-ver="0">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div>
+                            <p>SUBSCRIBE TO OUR EMAIL FEED</p>
+                        </div>
+                    </div>
+                    <div class="table-thing with-label widget uib_w_28 d-margins" data-uib="app_framework/input" data-ver="1">
+                        <label class="narrow-control label-inline">Email Address:</label>
+
+                        <input class="wide-control" type="email">
+                    </div>
+                    <div class="widget uib_w_29 d-margins" data-uib="app_framework/checkbox" data-ver="1">
+                        <input type="checkbox" id="af-checkbox-0">
+                        <label class="content-box" for="af-checkbox-0">I Agree to recieve emails regularly on candidate bios.</label>
+                    </div>
+                    <div class="widget uib_w_30 d-margins TEXTHEADER" data-uib="media/text" data-ver="0">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div>
+                            <p>SEND US YOUR COMMENTS</p>
+                        </div>
+                    </div>
+                    <div class="table-thing with-label widget uib_w_31 d-margins" data-uib="app_framework/input" data-ver="1">
+                        <label class="narrow-control label-inline">Name:</label>
+
+                        <input class="wide-control" placeholder="First, Last name ..." type="text">
+                    </div>
+                    <div class="table-thing with-label widget uib_w_32 d-margins" data-uib="app_framework/input" data-ver="1">
+                        <label class="narrow-control label-inline">Email:</label>
+
+                        <input class="wide-control" type="email">
+                    </div>
+                    <div class="table-thing with-label widget uib_w_33 d-margins" data-uib="app_framework/select" data-ver="1">
+                        <label class="narrow-control label-inline">Subject:</label>
+
+                        <select class="wide-control">
+                            <option>Volunteer Offers</option>
+                            <option>United Nations Contacts</option>
+                            <option>App Feedback and Bug Reporting</option>
+                            <option>Suggestions and Support</option>
+                        </select>
+                    </div>
+                    <div class="table-thing with-label widget uib_w_34 d-margins" data-uib="app_framework/textarea" data-ver="1">
+                        <label class="narrow-control label-inline">Message:</label>
+
+                        <textarea class="wide-control" placeholder="500 words max ..." rows="2" wrap="soft"></textarea>
+                    </div><a class="button widget uib_w_35 d-margins" data-uib="app_framework/button" data-ver="1">Send</a>
+                </div>
+                <div id="uib_ProfileRegister" class="upage-content vertical-col hidden">
+                    <div class="widget uib_w_19 scale-image d-margins" data-uib="media/img" data-ver="0">
+                        <figure class="figure-align">
+                            <img src="images/Logo2.png">
+                            <figcaption data-position="bottom"></figcaption>
+                        </figure>
+                    </div>
+                    <div class="widget uib_w_20 scale-image d-margins" data-uib="media/img" data-ver="0">
+                        <figure class="figure-align">
+                            <img src="images/signin-psd-button-free.PNG">
+                            <figcaption data-position="bottom"></figcaption>
+                        </figure>
+                    </div>
+                    <div class="uib-grid widget uib_w_42 grid-height" data-uib="layout/grid" data-ver="0">
+                        <div class="uib-grid-row">
+                            <div class="uib-grid-cell widget-container"><a class="button widget uib_w_40 buttonregistertext buttonregister registercustoms" data-uib="app_framework/button" data-ver="1">Forgot Password ? </a>
+                            </div>
+                            <div class="uib-grid-cell widget-container"><a class="button widget uib_w_41 buttonregistertext buttonregister registercustoms" data-uib="app_framework/button" data-ver="1">New Register ? </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="uib_ProfileDefault" class="upage-content vertical-col hidden">
+                    <div class="sbs-container widget uib_w_133 d-margins" data-uib="layout/side_by_side" data-ver="0">
+                        <div class="leftContent widget-container">
+                            <div class="widget uib_w_132 d-margins" data-uib="media/img" data-ver="0">
+                                <figure class="figure-align">
+                                    <img src="images/noun_51590_cc.png">
+                                    <figcaption data-position="bottom"></figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                        <div class="rightContent widget-container">
+                            <div class="widget uib_w_134 d-margins" data-uib="media/text" data-ver="0">
+                                <div class="widget-container left-receptacle"></div>
+                                <div class="widget-container right-receptacle"></div>
+                                <div>
+                                    <p>Title:</p>
+                                    <p>Name:</p>
+                                    <p>Country:</p>
+                                    <p>Organization:</p>
+                                    <p>&nbsp;</p>
+                                    <p>Facebook Profile:</p>
+                                    <p>Twitter Account:</p>
+                                    <p>Youtube Channel:</p>
+                                    <p>&nbsp;</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget uib_w_135 d-margins" data-uib="media/text" data-ver="0">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div>
+                            <p>Summary:</p>
+                            <p>&nbsp;</p>
+                            <p>- Can include things like Infographics.</p>
+                            <p>- Historical time lines.</p>
+                            <p>- Project summaries.</p>
+                            <p>- Background stories.</p>
+                        </div>
+                    </div>
+                    <div class="widget uib_w_142 d-margins TEXTHEADER" data-uib="media/text" data-ver="0">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div>
+                            <p>Events | Photos</p>
+                        </div>
+                    </div>
+                    <div class="galleria image-gallery-size widget uib_w_141 d-margins" data-uib="media/image_gallery" data-ver="0" data-sm-trigger="true" images-json="gallery_images/gallery_images.json">
+                    </div>
+                    <div class="widget uib_w_143 d-margins TEXTHEADER" data-uib="media/text" data-ver="0">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div>
+                            <p>Media | Videos</p>
+                        </div>
+                    </div>
+                    <div class="galleria image-gallery-size widget uib_w_144 d-margins" data-uib="media/image_gallery" data-ver="0" data-sm-trigger="true" images-json="gallery_images/gallery_images.json">
+                    </div>
+                    <div class="sbs-container widget uib_w_136 hudbuttons" data-uib="layout/side_by_side" data-ver="0">
+                        <div class="leftContent widget-container">
+                            <a class="uib-graphic-button default-graphic-sizing default-image-sizing hover-graphic-button active-graphic-button default-graphic-text widget uib_w_137 d-margins media-button-text-bottom" data-uib="media/graphic_button" data-ver="0">
+                                <img src="images/Icon_1-512.png">
+                                <span class="uib-caption">Like</span>
+                            </a>
+                        </div>
+                        <div class="rightContent widget-container">
+                            <a class="uib-graphic-button default-graphic-sizing default-image-sizing hover-graphic-button active-graphic-button default-graphic-text widget uib_w_145 d-margins media-button-text-bottom" data-uib="media/graphic_button" data-ver="0">
+                                <img src="images/noun_38220_cc.png">
+                                <span class="uib-caption">Follow</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="widget uib_w_139 d-margins" data-uib="media/text" data-ver="0">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div>
+                            <p>&nbsp;</p>
+                        </div>
+                    </div>
+                    <a class="uib-graphic-button default-graphic-sizing default-image-sizing hover-graphic-button active-graphic-button widget uib_w_146 d-margins instavotebutton hudbuttons media-button-text-bottom" data-uib="media/graphic_button" data-ver="0">
+                        <img src="images/noun_39547_cc.png">
+                        <span class="uib-caption">Publications Section</span>
+                    </a>
+                    <a class="uib-graphic-button widget uib_w_138 default-graphic-sizing hudbuttons instavotebutton media-button-text-bottom" data-uib="media/graphic_button" data-ver="0">
+                        <img src="images/noun_41264.png">
+                        <span class="uib-caption">Comments Board </span>
+                    </a>
+                </div>
+
+                <div id="uib_SearchResults" class="upage-content vertical-col hidden">
+
+                    <div class="widget uib_w_77 widget-container content-area vertical-col uib-card cpad-0 d-margins" data-uib="layout/card" data-ver="0"></div>
+
+                    <div class="widget uib_w_79 widget-container content-area vertical-col uib-card d-margins section-dimension-79 cpad-4" data-uib="layout/card" data-ver="0">
+                        <div class="sbs-container widget uib_w_163 d-margins" data-uib="layout/side_by_side" data-ver="0">
+                            <div class="leftContent widget-container">
+                                <div class="widget uib_w_86 d-margins cardsizesiamge" data-uib="media/img" data-ver="0">
+                                    <figure class="figure-align">
+                                        <img src="images/photocandidate1.png">
+                                        <figcaption data-position="bottom"></figcaption>
+                                    </figure>
+                                </div>
+                            </div>
+                            <div class="rightContent widget-container">
+                                <div class="widget uib_w_162 d-margins paragraphs" data-uib="media/text" data-ver="0">
+                                    <div class="widget-container left-receptacle"></div>
+                                    <div class="widget-container right-receptacle"></div>
+                                    <div>
+                                        <p>Name:</p>
+                                        <p>Profession:</p>
+                                        <p>Organization:</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <section class="card-footer widget-container content-area vertical-col">
+                            <div class="sbs-container widget uib_w_161 d-margins" data-uib="layout/side_by_side" data-ver="0">
+                                <div class="leftContent widget-container">
+                                    <div class="widget uib_w_87 d-margins cardtext" data-uib="media/text" data-ver="0">
+                                        <div class="widget-container left-receptacle"></div>
+                                        <div class="widget-container right-receptacle"></div>
+                                        <div>
+                                            <p>Followers:</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="rightContent widget-container">
+                                    <div class="widget uib_w_88 d-margins cardtextR" data-uib="media/text" data-ver="0">
+                                        <div class="widget-container left-receptacle"></div>
+                                        <div class="widget-container right-receptacle"></div>
+                                        <div>
+                                            <p>:Votes</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+
+                    <div class="widget uib_w_82 widget-container content-area vertical-col uib-card cpad-0 d-margins section-dimension-82" data-uib="layout/card" data-ver="0">
+                        <div class="sbs-container widget uib_w_164 d-margins" data-uib="layout/side_by_side" data-ver="0">
+                            <div class="leftContent widget-container">
+                                <div class="widget uib_w_168 d-margins cardsizesiamge" data-uib="media/img" data-ver="0">
+                                    <figure class="figure-align">
+                                        <img src="images/photocandidate3.png">
+                                        <figcaption data-position="bottom"></figcaption>
+                                    </figure>
+                                </div>
+                            </div>
+                            <div class="rightContent widget-container">
+                                <div class="widget uib_w_169 d-margins paragraphs" data-uib="media/text" data-ver="0">
+                                    <div class="widget-container left-receptacle"></div>
+                                    <div class="widget-container right-receptacle"></div>
+                                    <div>
+                                        <p>Name:</p>
+                                        <p>Profession:</p>
+                                        <p>Organization:</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sbs-container widget uib_w_165 d-margins" data-uib="layout/side_by_side" data-ver="0">
+                            <div class="leftContent widget-container">
+                                <div class="widget uib_w_170 d-margins cardtext" data-uib="media/text" data-ver="0">
+                                    <div class="widget-container left-receptacle"></div>
+                                    <div class="widget-container right-receptacle"></div>
+                                    <div>
+                                        <p>Followers:</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rightContent widget-container">
+                                <div class="widget uib_w_171 d-margins cardtextR" data-uib="media/text" data-ver="0">
+                                    <div class="widget-container left-receptacle"></div>
+                                    <div class="widget-container right-receptacle"></div>
+                                    <div>
+                                        <p>:Votes</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget uib_w_83 widget-container content-area vertical-col uib-card cpad-0 d-margins section-dimension-83" data-uib="layout/card" data-ver="0">
+                        <div class="sbs-container widget uib_w_166 d-margins" data-uib="layout/side_by_side" data-ver="0">
+                            <div class="leftContent widget-container">
+                                <div class="widget uib_w_172 d-margins cardsizesiamge" data-uib="media/img" data-ver="0">
+                                    <figure class="figure-align">
+                                        <img src="images/photocandidate2.png">
+                                        <figcaption data-position="bottom"></figcaption>
+                                    </figure>
+                                </div>
+                            </div>
+                            <div class="rightContent widget-container">
+                                <div class="widget uib_w_173 d-margins paragraphs" data-uib="media/text" data-ver="0">
+                                    <div class="widget-container left-receptacle"></div>
+                                    <div class="widget-container right-receptacle"></div>
+                                    <div>
+                                        <p>Name:</p>
+                                        <p>Profession:</p>
+                                        <p>Organization:</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sbs-container widget uib_w_167 d-margins" data-uib="layout/side_by_side" data-ver="0">
+                            <div class="leftContent widget-container">
+                                <div class="widget uib_w_174 d-margins cardtext" data-uib="media/text" data-ver="0">
+                                    <div class="widget-container left-receptacle"></div>
+                                    <div class="widget-container right-receptacle"></div>
+                                    <div>
+                                        <p>Followers:</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rightContent widget-container">
+                                <div class="widget uib_w_175 d-margins cardtextR" data-uib="media/text" data-ver="0">
+                                    <div class="widget-container left-receptacle"></div>
+                                    <div class="widget-container right-receptacle"></div>
+                                    <div>
+                                        <p>:Votes</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget uib_w_130 d-margins search" data-uib="media/img" data-ver="0">
+                        <figure class="figure-align">
+                            <img src="images/noun_22301_cc.png">
+                            <figcaption data-position="bottom"></figcaption>
+                        </figure>
+                    </div>
+
+                </div>
+                <div id="uib_Suggest" class="upage-content vertical-col hidden">
+                    <div class="widget uib_w_65 scale-image d-margins" data-uib="media/img" data-ver="0">
+                        <figure class="figure-align">
+                            <img src="images/Logo2.png">
+                            <figcaption data-position="bottom"></figcaption>
+                        </figure>
+                    </div>
+                    <div class="widget uib_w_66 d-margins TEXTHEADER" data-uib="media/text" data-ver="0">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div>
+                            <p>Know someone who aspires to be the next great Secretary-General ?</p>
+                            <p>&nbsp;</p>
+                            <p>Nominate them here !</p>
+                        </div>
+                    </div>
+                    <div class="table-thing with-label widget uib_w_67 d-margins" data-uib="app_framework/input" data-ver="1">
+                        <label class="narrow-control label-inline">Gender:</label>
+                        <input class="wide-control" placeholder="Male, Female or Other" type="text">
+                    </div>
+                    <div class="table-thing with-label widget uib_w_68 d-margins" data-uib="app_framework/input" data-ver="1">
+                        <label class="narrow-control label-inline">Name:</label>
+                        <input class="wide-control" placeholder="Last name, First name" type="text">
+                    </div>
+                    <div class="table-thing with-label widget uib_w_70 d-margins" data-uib="app_framework/input" data-ver="1">
+                        <label class="narrow-control label-inline">Twitter Handle:</label>
+                        <input class="wide-control" type="url">
+                    </div>
+                    <div class="table-thing with-label widget uib_w_71 d-margins" data-uib="app_framework/input" data-ver="1">
+                        <label class="narrow-control label-inline">Facebook Handle:</label>
+                        <input class="wide-control" type="url">
+                    </div>
+                    <div class="table-thing with-label widget uib_w_72 d-margins" data-uib="app_framework/select" data-ver="1">
+                        <label class="narrow-control label-inline">Current Profession</label>
+                        <select class="wide-control">
+                            <option>Unemployed</option>
+                            <option>Student</option>
+                            <option>Graduate</option>
+                            <option>Manager</option>
+                            <option>Director</option>
+                            <option>Government</option>
+                            <option>Public Sector</option>
+                            <option>Private Sector</option>
+                            <option>Entrepreneur</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div class="table-thing with-label widget uib_w_69 d-margins" data-uib="app_framework/textarea" data-ver="1">
+                        <label class="narrow-control label-inline">Why should said person be the next Secretary-General ?</label>
+                        <textarea class="wide-control" placeholder="500 words of less." rows="5" wrap="soft"></textarea>
+                    </div>
+                    <div class="widget uib_w_74 d-margins" data-uib="media/file_input" data-ver="0">
+                        <input type="file">
+                    </div>
+                    <div class="widget uib_w_75 d-margins hudbuttons" data-uib="media/text" data-ver="0">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div>
+                            <p>*Include Photo</p>
+                        </div>
+                    </div><a class="button widget uib_w_73 d-margins buttonregistertext yellow" data-uib="app_framework/button" data-ver="1">Send</a>
+                </div>
+                <div id="uib_Leaderboard" class="upage-content vertical-col hidden">
+                    <div class="sbs-container widget uib_w_97 d-margins" data-uib="layout/side_by_side" data-ver="0">
+                        <div class="leftContent widget-container"></div>
+                        <div class="rightContent widget-container"></div>
+                    </div>
+                    <div class="widget uib_w_160 scale-image d-margins" data-uib="media/img" data-ver="0">
+                        <figure class="figure-align">
+                            <img src="images/Logo2.png">
+                            <figcaption data-position="bottom"></figcaption>
+                        </figure>
+                    </div>
+                    <div class="widget uib_w_98 d-margins TEXTHEADER" data-uib="media/text" data-ver="0">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div>
+                            <p>Top 5 Issues</p>
+                        </div>
+                    </div>
+                    <ul class="list widget uib_w_156 d-margins" data-uib="app_framework/listview" data-ver="1">
+                        <li class="widget uib_w_157" data-uib="app_framework/listitem" data-ver="1"><a class="icon lamp" href="#uib_BiosTemplate">Topic [ Title, Follower Counter, Swipe Tweet Board ]</a>
+                        </li>
+                        <li class="widget uib_w_158" data-uib="app_framework/listitem" data-ver="1"><a class="icon magnifier" href="#uib_BiosTemplate">Topic [ Title, Follower Counter, Swipe Tweet Board ]</a>
+                        </li>
+                        <li class="widget uib_w_159" data-uib="app_framework/listitem" data-ver="1"><a class="icon tag" href="#uib_BiosTemplate">Topic [ Title, Follower Counter, Swipe Tweet Board ]</a>
+                        </li>
+                    </ul>
+                    <div class="widget uib_w_99 d-margins TEXTHEADER" data-uib="media/text" data-ver="0">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div>
+                            <p>Top 5 Projects</p>
+                        </div>
+                    </div>
+                    <ul class="list widget uib_w_152 d-margins" data-uib="app_framework/listview" data-ver="1">
+                        <li class="widget uib_w_153" data-uib="app_framework/listitem" data-ver="1"><a class="icon location" href="#uib_BiosTemplate">Mission [ Title, Organization, Size, External Link ]</a>
+                        </li>
+                        <li class="widget uib_w_154" data-uib="app_framework/listitem" data-ver="1"><a class="icon calendar" href="#uib_BiosTemplate">Mission [ Title, Organization, Size, External Link ]</a>
+                        </li>
+                        <li class="widget uib_w_155" data-uib="app_framework/listitem" data-ver="1"><a class="icon chat" href="#uib_BiosTemplate">Mission [ Title, Organization, Size, External Link ]</a>
+                        </li>
+                    </ul>
+                    <div class="widget uib_w_100 d-margins TEXTHEADER" data-uib="media/text" data-ver="0">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div>
+                            <p>Top 5 News Stories</p>
+                        </div>
+                    </div>
+                    <ul class="list widget uib_w_148 d-margins" data-uib="app_framework/listview" data-ver="1">
+                        <li class="widget uib_w_149" data-uib="app_framework/listitem" data-ver="1"><a class="icon location" href="#uib_BiosTemplate">Headline [ Title, Genre, Date, Views ]</a>
+                        </li>
+                        <li class="widget uib_w_150" data-uib="app_framework/listitem" data-ver="1"><a class="icon tv" href="#uib_BiosTemplate">Headline [ Title, Genre, Date, Views ]</a>
+                        </li>
+                        <li class="widget uib_w_151" data-uib="app_framework/listitem" data-ver="1"><a class="icon new" href="#uib_BiosTemplate">Headline [ Title, Genre, Date, Views ]</a>
+                        </li>
+                    </ul>
+                    <div class="widget uib_w_101 d-margins TEXTHEADER" data-uib="media/text" data-ver="0">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div>
+                            <p>Top 10 Candidates based on # of Votes</p>
+                        </div>
+                    </div>
+                    <ul class="list widget uib_w_107 d-margins" data-uib="app_framework/listview" data-ver="1">
+                        <li class="widget uib_w_108" data-uib="app_framework/listitem" data-ver="1"><a class="icon star" href="#uib_BiosTemplate">Person 21 [ Photo, Name, Notification Counter, View Icon ]</a>
+                        </li>
+                        <li class="widget uib_w_109" data-uib="app_framework/listitem" data-ver="1"><a class="icon heart" href="#uib_BiosTemplate">Person 11 [ Photo, Name, Notification Counter, View Icon ]</a>
+                        </li>
+                        <li class="widget uib_w_110" data-uib="app_framework/listitem" data-ver="1"><a class="icon graph" href="#uib_BiosTemplate">Person 7311 [ Photo, Name, Notification Counter, View Icon ]</a>
+                        </li>
+                    </ul>
+                    <div class="widget uib_w_102 d-margins TEXTHEADER" data-uib="media/text" data-ver="0">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div>
+                            <p>Top 10 Candidates based on # of Followers</p>
+                        </div>
+                    </div>
+                    <ul class="list widget uib_w_103 d-margins" data-uib="app_framework/listview" data-ver="1">
+                        <li class="widget uib_w_104" data-uib="app_framework/listitem" data-ver="1"><a class="icon user" href="#uib_BiosTemplate">Person 1211 [ Photo, Name, Notification Counter, View Icon ]</a>
+                        </li>
+                        <li class="widget uib_w_105" data-uib="app_framework/listitem" data-ver="1"><a class="icon graph" href="#uib_BiosTemplate">Person 212 [ Photo, Name, Notification Counter, View Icon ]</a>
+                        </li>
+                        <li class="widget uib_w_106" data-uib="app_framework/listitem" data-ver="1"><a class="icon pin" href="#uib_BiosTemplate">Person 35 [ Photo, Name, Notification Counter, View Icon ]</a>
+                        </li>
+                    </ul>
+                </div>
+                <div id="uib_Vote" class="upage-content vertical-col hidden">
+                    <div class="widget uib_w_92 scale-image d-margins" data-uib="media/img" data-ver="0">
+                        <figure class="figure-align">
+                            <img src="images/Logo2.png">
+                            <figcaption data-position="bottom"></figcaption>
+                        </figure>
+                    </div>
+                    <div class="widget uib_w_96 d-margins TEXTHEADER" data-uib="media/text" data-ver="0">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div>
+                            <p>- Vote for Current Candidates -</p>
+                        </div>
+                    </div>
+                    <div class="widget uib_w_95 d-margins TEXTHEADER" data-uib="media/text" data-ver="0">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div>
+                            <p>Candidate List:</p>
+                        </div>
+                    </div>
+                    <div class="sbs-container widget uib_w_91 d-margins" data-uib="layout/side_by_side" data-ver="0">
+                        <div class="leftContent widget-container">
+                            <div class="table-thing with-label widget uib_w_93 d-margins" data-uib="app_framework/select" data-ver="1">
+                                <label class="narrow-control label-inline">Country</label>
+
+                                <select class="wide-control">
+                                    <option>North America</option>
+                                    <option>South America</option>
+                                    <option>Europe</option>
+                                    <option>Asia</option>
+                                    <option>Africa</option>
+                                    <option>Area 51</option>
+                                    <option>The Moon</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="rightContent widget-container">
+                            <div class="table-thing with-label widget uib_w_94 d-margins" data-uib="app_framework/select" data-ver="1">
+                                <label class="narrow-control label-inline">Issue</label>
+
+                                <select class="wide-control">
+                                    <option>Global</option>
+                                    <option>International</option>
+                                    <option>Domestic</option>
+                                    <option>Local</option>
+                                    <option>Grass Root</option>
+                                    <option>Your Mom's Basement</option>
+                                    <option>Your Dad's Garage</option>
+                                    <option>That Van down by the River</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid grid-pad urow uib_row_3 row-height-3" data-uib="layout/row" data-ver="0">
+                        <div class="col uib_col_3 col-0_12-12" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <div class="widget uib_w_111 d-margins" data-uib="media/img" data-ver="0">
+                                    <figure class="figure-align">
+                                        <img src="images/photocandidate1.png">
+                                        <figcaption data-position="bottom"></figcaption>
+                                    </figure>
+                                </div>
+                                <div class="widget uib_w_112 d-margins TEXTHEADER" data-uib="media/text" data-ver="0">
+                                    <div class="widget-container left-receptacle"></div>
+                                    <div class="widget-container right-receptacle"></div>
+                                    <div>
+                                        <p>Name:</p>
+                                        <p>Title:</p>
+                                        <p>Organization:</p>
+                                    </div>
+                                </div>
+                                <div class="sbs-container widget uib_w_113 d-margins" data-uib="layout/side_by_side" data-ver="0">
+                                    <div class="leftContent widget-container">
+                                        <div class="widget uib_w_114 d-margins displaysize" data-uib="media/img" data-ver="0">
+                                            <figure class="figure-align">
+                                                <img src="images/followers.jpg">
+                                                <figcaption data-position="bottom"></figcaption>
+                                            </figure>
+                                        </div>
+                                    </div>
+                                    <div class="rightContent widget-container">
+                                        <div class="widget uib_w_115 d-margins TEXTHEADER" data-uib="media/text" data-ver="0">
+                                            <div class="widget-container left-receptacle"></div>
+                                            <div class="widget-container right-receptacle"></div>
+                                            <div>
+                                                <p>#00100 Voters</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a class="uib-graphic-button widget uib_w_124 buttonregister instavotebutton media-button-text-bottom buttonstexthud" data-uib="media/graphic_button" data-ver="0" href="#uib_BiosTemplate">
+                                    <img src="images/Election-128.png">
+                                    <span class="uib-caption">Vote Now</span>
+                                </a><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <span class="uib_shim"></span>
+                    </div>
+                    <div class="grid grid-pad urow uib_row_4 row-height-4" data-uib="layout/row" data-ver="0">
+                        <div class="col uib_col_4 col-0_12-12" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <div class="widget uib_w_116 d-margins" data-uib="media/img" data-ver="0">
+                                    <figure class="figure-align">
+                                        <img src="images/photocandidate2.png">
+                                        <figcaption data-position="bottom"></figcaption>
+                                    </figure>
+                                </div>
+                                <div class="widget uib_w_118 d-margins TEXTHEADER" data-uib="media/text" data-ver="0">
+                                    <div class="widget-container left-receptacle"></div>
+                                    <div class="widget-container right-receptacle"></div>
+                                    <div>
+                                        <p>Name:</p>
+                                        <p>Title:</p>
+                                        <p>Organization:</p>
+                                    </div>
+                                </div>
+                                <div class="sbs-container widget uib_w_120 d-margins" data-uib="layout/side_by_side" data-ver="0">
+                                    <div class="leftContent widget-container">
+                                        <div class="widget uib_w_126 d-margins displaysize" data-uib="media/img" data-ver="0">
+                                            <figure class="figure-align">
+                                                <img src="images/followers.jpg">
+                                                <figcaption data-position="bottom"></figcaption>
+                                            </figure>
+                                        </div>
+                                    </div>
+                                    <div class="rightContent widget-container">
+                                        <div class="widget uib_w_122 d-margins TEXTHEADER" data-uib="media/text" data-ver="0">
+                                            <div class="widget-container left-receptacle"></div>
+                                            <div class="widget-container right-receptacle"></div>
+                                            <div>
+                                                <p>#01100 Voters</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a class="uib-graphic-button widget uib_w_125 buttonregistertext buttonstexthud instavotebutton media-button-text-bottom" data-uib="media/graphic_button" data-ver="0" href="#uib_BiosTemplate">
+                                    <img src="images/Election-128.png">
+                                    <span class="uib-caption">Vote Now</span>
+                                </a><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <span class="uib_shim"></span>
+                    </div>
+                    <div class="grid grid-pad urow uib_row_5 row-height-5" data-uib="layout/row" data-ver="0">
+                        <div class="col uib_col_5 col-0_12-12" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <div class="widget uib_w_117 d-margins" data-uib="media/img" data-ver="0">
+                                    <figure class="figure-align">
+                                        <img src="images/photocandidate3.png">
+                                        <figcaption data-position="bottom"></figcaption>
+                                    </figure>
+                                </div>
+                                <div class="widget uib_w_119 d-margins TEXTHEADER" data-uib="media/text" data-ver="0">
+                                    <div class="widget-container left-receptacle"></div>
+                                    <div class="widget-container right-receptacle"></div>
+                                    <div>
+                                        <p>Name:</p>
+                                        <p>Title:</p>
+                                        <p>Organization:</p>
+                                    </div>
+                                </div>
+                                <div class="sbs-container widget uib_w_121 d-margins" data-uib="layout/side_by_side" data-ver="0">
+                                    <div class="leftContent widget-container">
+                                        <div class="widget uib_w_127 d-margins displaysize" data-uib="media/img" data-ver="0">
+                                            <figure class="figure-align">
+                                                <img src="images/followers.jpg">
+                                                <figcaption data-position="bottom"></figcaption>
+                                            </figure>
+                                        </div>
+                                    </div>
+                                    <div class="rightContent widget-container">
+                                        <div class="widget uib_w_123 d-margins TEXTHEADER" data-uib="media/text" data-ver="0">
+                                            <div class="widget-container left-receptacle"></div>
+                                            <div class="widget-container right-receptacle"></div>
+                                            <div>
+                                                <p>#02170 Voters</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a class="uib-graphic-button widget uib_w_128 buttonregistertext buttonstexthud instavotebutton media-button-text-bottom" data-uib="media/graphic_button" data-ver="0" href="#uib_BiosTemplate">
+                                    <img src="images/Election-128.png">
+                                    <span class="uib-caption">Vote Now</span>
+                                </a>
+                                <div class="widget uib_w_147 d-margins" data-uib="media/text" data-ver="0">
+                                    <div class="widget-container left-receptacle"></div>
+                                    <div class="widget-container right-receptacle"></div>
+                                    <div>
+                                        <p>&nbsp;</p>
+                                        <p>&nbsp;</p>
+                                        <p>&nbsp;</p>
+                                        <p>&nbsp;</p>
+                                    </div>
+                                </div>
+                                <div class="widget uib_w_129 d-margins search" data-uib="media/img" data-ver="0">
+                                    <figure class="figure-align">
+                                        <img src="images/noun_22301_cc.png">
+                                    </figure>
+                                </div><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <span class="uib_shim"></span>
+                    </div>
+                </div>
+                <div id="uib_BiosTemplate" class="upage-content vertical-col hidden">
+                    <div class="uib-grid widget uib_w_60 grid-text d-margins" data-uib="layout/grid" data-ver="0">
+                        <div class="uib-grid-row">
+                            <div class="uib-grid-cell widget-container"></div>
+                            <div class="uib-grid-cell widget-container"></div>
+                            <div class="uib-grid-cell widget-container"></div>
+                        </div>
+                        <div class="uib-grid-row">
+                            <div class="uib-grid-cell widget-container"></div>
+                            <div class="uib-grid-cell widget-container"></div>
+                            <div class="uib-grid-cell widget-container"></div>
+                        </div>
+                        <div class="uib-grid-row">
+                            <div class="uib-grid-cell widget-container"></div>
+                            <div class="uib-grid-cell widget-container"></div>
+                            <div class="uib-grid-cell widget-container"></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="uib_SearchDefault" class="upage-content vertical-col hidden">
+                    <div class="grid grid-pad urow uib_row_2 row-height-2" data-uib="layout/row" data-ver="0">
+                        <div class="col uib_col_2 col-0_12-12" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <div class="widget uib_w_50 scale-image d-margins" data-uib="media/img" data-ver="0">
+                                    <figure class="figure-align">
+                                        <img src="images/Logo2.png">
+                                        <figcaption data-position="bottom"></figcaption>
+                                    </figure>
+                                </div>
+                                <div class="widget uib_w_52 d-margins search" data-uib="media/img" data-ver="0">
+                                    <figure class="figure-align">
+                                        <img src="images/noun_62527_cc.png">
+                                        <figcaption data-position="bottom"></figcaption>
+                                    </figure>
+                                </div>
+                                <div class="table-thing with-label widget uib_w_53 d-margins" data-uib="app_framework/input" data-ver="1">
+                                    <label class="narrow-control label-inline">Name:</label>
+
+                                    <input class="wide-control" placeholder="Last name, First name" type="text">
+                                </div>
+                                <div class="widget uib_w_55 d-margins search" data-uib="media/img" data-ver="0">
+                                    <figure class="figure-align">
+                                        <img src="images/noun_33372_cc.png">
+                                        <figcaption data-position="bottom"></figcaption>
+                                    </figure>
+                                </div>
+                                <div class="table-thing with-label widget uib_w_56 d-margins" data-uib="app_framework/input" data-ver="1">
+                                    <label class="narrow-control label-inline">Organization:</label>
+
+                                    <input class="wide-control" placeholder="Abrievations Included" type="text">
+                                </div>
+                                <div class="widget uib_w_58 d-margins search" data-uib="media/img" data-ver="0">
+                                    <figure class="figure-align">
+                                        <img src="images/noun_25841_cc.png">
+                                        <figcaption data-position="bottom"></figcaption>
+                                    </figure>
+                                </div>
+                                <div class="table-thing with-label widget uib_w_59 d-margins" data-uib="app_framework/input" data-ver="1">
+                                    <label class="narrow-control label-inline">Country:</label>
+
+                                    <input class="wide-control" placeholder="Region, Territory or Emirate" type="text">
+                                </div>
+                                <div class="widget uib_w_62 d-margins search" data-uib="media/img" data-ver="0">
+                                    <figure class="figure-align">
+                                        <img src="images/noun_42521_cc.png">
+                                        <figcaption data-position="bottom"></figcaption>
+                                    </figure>
+                                </div>
+                                <div class="table-thing with-label widget uib_w_63 d-margins" data-uib="app_framework/select" data-ver="1">
+                                    <label class="narrow-control label-inline">Issue:</label>
+                                    <select class="wide-control">
+                                        <option>Africa</option>
+                                        <option>Asia</option>
+                                        <option>Latin America</option>
+                                        <option>Atomic Energy</option>
+                                        <option>De-Mining</option>
+                                        <option>Environment</option>
+                                        <option>Health</option>
+                                        <option>International Law</option>
+                                        <option>Population Control</option>
+                                        <option>Water Protection</option>
+                                        <option>Ageing Society</option>
+                                        <option>Children</option>
+                                        <option>Democratic Rights</option>
+                                        <option>Family Planning</option>
+                                        <option>Human Rights</option>
+                                        <option>Laws of the Sea</option>
+                                        <option>Laws of Outer Space</option>
+                                        <option>Refugees</option>
+                                        <option>Woman Rights</option>
+                                        <option>Agricultural Development</option>
+                                        <option>Technological Development</option>
+                                        <option>Economic Development</option>
+                                        <option>Food Security</option>
+                                        <option>Human Settlements</option>
+                                        <option>Peace and Collective Security</option>
+                                        <option>Terrorism</option>
+                                        <option>Piracy</option>
+                                        <option>Viral Diseases</option>
+                                        <option>Decolonization</option>
+                                        <option>Disarmament</option>
+                                        <option>Arms Control</option>
+                                        <option>Governance</option>
+                                        <option>Public Administration</option>
+                                        <option>Humanitarian Assistance</option>
+                                        <option>Persons with Disabilities</option>
+                                        <option>Volunteerism</option>
+                                        <option>Welfare States</option>
+                                        <option>Freedom of Speech</option>
+                                        <option>Freedom of Religion</option>
+                                        <option>Civil Liberties</option>
+                                        <option>Trade Commissions</option>
+                                        <option>Doctors without Borders</option>
+                                        <option>Youth Leagues</option>
+                                    </select>
+                                </div><a class="button widget uib_w_64 d-margins buttonregistertext yellow" data-uib="app_framework/button" data-ver="1">Search</a><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <span class="uib_shim"></span>
+                    </div>
+                </div>
+            </div>
+            <!-- /upage -->
+
+        </div>
+        <footer class="wrap-element uib_w_49" data-uib="app_framework/footer" data-ver="1" id="af-footer-1"></footer>
+        <!-- /uwrap -->
+    </body>
+
+</html>

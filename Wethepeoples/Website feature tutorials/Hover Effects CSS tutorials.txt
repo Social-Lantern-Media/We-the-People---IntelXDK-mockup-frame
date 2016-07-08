@@ -1,0 +1,12 @@
+Please download source files for relevant css/html/js code
+
+http://tympanus.net/codrops/2013/05/30/simple-icon-hover-effects/
+- Hover for selection
+
+http://tympanus.net/codrops/2014/10/28/some-more-subtle-hover-effect-ideas/
+- Popout for information
+
+http://tympanus.net/codrops/2014/06/19/ideas-for-subtle-hover-effects/
+
+-popout for details
+
